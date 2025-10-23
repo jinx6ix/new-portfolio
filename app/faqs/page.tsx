@@ -202,7 +202,7 @@ export default function FAQsPage() {
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl font-bold text-balance leading-tight">Frequently Asked Questions</h1>
               <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                Find answers to common questions about my services, pricing, and processes. Can't find what you're
+                Find answers to common questions about my services, pricing, and processes. Can&apos;t find what you&apos;re
                 looking for? Feel free to contact me directly.
               </p>
             </div>
@@ -301,7 +301,7 @@ export default function FAQsPage() {
               <div className="space-y-4">
                 <h2 className="text-4xl font-bold">Still Have Questions?</h2>
                 <p className="text-lg text-muted-foreground">
-                  Can't find the answer you're looking for? I'm here to help. Reach out and I'll get back to you as soon
+                  Can&apos;t find the answer you&apos;re looking for? I&apos;m here to help. Reach out and I&apos;ll get back to you as soon
                   as possible.
                 </p>
               </div>
@@ -362,7 +362,7 @@ export default function FAQsPage() {
               <Card className="p-6 hover:border-primary transition-colors cursor-pointer h-full">
                 <h3 className="text-xl font-semibold mb-2">Portfolio</h3>
                 <p className="text-muted-foreground text-sm mb-4">
-                  View case studies and examples of projects I've completed for clients.
+                  View case studies and examples of projects I&apos;ve completed for clients.
                 </p>
                 <div className="flex items-center gap-2 text-primary text-sm font-medium">
                   View Projects <ArrowRight className="h-4 w-4" />

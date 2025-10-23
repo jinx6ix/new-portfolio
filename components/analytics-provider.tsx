@@ -15,7 +15,7 @@ export function AnalyticsProvider() {
   useEffect(() => {
     // Track page views
     if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("config", "G-XXXXXXXXXX", {
+      window.gtag("config", "G-EN1K94FRDB", {
         page_path: pathname,
       })
     }
