@@ -43,7 +43,7 @@ All requested features have been successfully implemented and integrated into yo
 
 ### Features:
 - ✅ Email notifications to admin: `jinxed435@gmail.com`
-- ✅ WhatsApp notifications to: `+25475625634`
+- ✅ WhatsApp notifications to: `+254757662968`
 - ✅ HTML email templates for both client and admin
 - ✅ Automatic confirmation emails
 - ✅ WhatsApp message notifications
@@ -237,8 +237,8 @@ Update social media URLs in `/app/social/page.tsx` with your actual profiles and
 
 ### Contact Information:
 - Email: `jinxed435@gmail.com`
-- Phone: `+254 756 256 34`
-- WhatsApp: `+25475625634`
+- Phone: `+254 757 6629 68`
+- WhatsApp: `+254757662968`
 - Location: Githunguri, Kiambu, Kenya
 
 ---

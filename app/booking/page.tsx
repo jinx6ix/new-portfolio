@@ -119,7 +119,7 @@ function BookingContent() {
           <Card className="p-8">
             <h1 className="text-3xl font-bold mb-2">Book Your Service</h1>
             <p className="text-muted-foreground mb-8">
-              Fill out the form below and we'll get back to you within 24 hours.
+              Fill out the form below and we&apos;ll get back to you within 24 hours.
             </p>
 
             {submitStatus === "success" && (
@@ -193,6 +193,7 @@ function BookingContent() {
               <div>
                 <label className="block text-sm font-medium mb-2">Service Type *</label>
                 <select
+                  title="Select a service"
                   name="serviceType"
                   value={formData.serviceType}
                   onChange={handleChange}
@@ -225,6 +226,7 @@ function BookingContent() {
                 <div>
                   <label className="block text-sm font-medium mb-2">Budget</label>
                   <select
+                    title="Select budget range"
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
@@ -240,6 +242,7 @@ function BookingContent() {
                 <div>
                   <label className="block text-sm font-medium mb-2">Timeline</label>
                   <select
+                    title="Select timeline"
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleChange}
@@ -283,7 +286,7 @@ function BookingContent() {
                   Email
                 </a>
                 <a
-                  href="https://wa.me/25475625634"
+                  href="https://wa.me/254757662968"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-green-500/10 hover:bg-green-500/20 rounded-lg transition-colors"

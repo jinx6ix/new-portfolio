@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
     await sendEmail("jinxed435@gmail.com", "New Booking Request", adminEmailHtml)
 
     // Send WhatsApp notification
-    const whatsappMessage = `Hi ${name}, thank you for booking with Ian Iraya! We've received your ${serviceType} request. We'll get back to you within 24 hours. Contact: +254 756 256 34`
+    const whatsappMessage = `Hi ${name}, thank you for booking with Ian Iraya! We've received your ${serviceType} request. We'll get back to you within 24 hours. Contact: +254 757 6629 68`
     await sendWhatsAppNotification(phone, whatsappMessage)
 
     // Store booking in a database (optional)

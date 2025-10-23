@@ -17,7 +17,7 @@ export const generateOrganizationSchema = () => {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
-      telephone: "+254-756-256-34",
+      telephone: "+254-757-6629-68",
       email: "jinxed435@gmail.com",
     },
     sameAs: [
@@ -126,7 +126,7 @@ export const generateLocalBusinessSchema = () => {
       postalCode: "00100",
       addressCountry: "KE",
     },
-    telephone: "+254-756-256-34",
+    telephone: "+254-757-6629-68",
     email: "jinxed435@gmail.com",
     url: "https://ianiraya.com",
     priceRange: "KES 12,000 - KES 100,000",

@@ -82,7 +82,7 @@ export default function Contact() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/10 to-transparent">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-5xl font-bold">Get In Touch</h1>
-          <p className="text-xl text-muted-foreground">Have a project in mind? Let's discuss how I can help</p>
+          <p className="text-xl text-muted-foreground">Have a project in mind? Let&apos;s discuss how I can help</p>
         </div>
       </section>
 
@@ -128,7 +128,7 @@ export default function Contact() {
               <div>
                 <h3 className="font-semibold mb-1">Phone</h3>
                 <a
-                  href="tel:+25475625634"
+                  href="tel:+254757662968"
                   className="text-muted-foreground hover:text-primary transition-colors"
                   onClick={() => {
                     if (typeof window !== "undefined" && window.gtag) {
@@ -136,7 +136,7 @@ export default function Contact() {
                     }
                   }}
                 >
-                  +254 756 256 34
+                  +254 757 6629 68
                 </a>
               </div>
             </Card>
@@ -161,7 +161,7 @@ export default function Contact() {
             </Card>
 
             <a
-              href="https://wa.me/25475625634"
+              href="https://wa.me/254757662968"
               target="_blank"
               rel="noopener noreferrer"
               className="block"
@@ -186,7 +186,7 @@ export default function Contact() {
             <Card className="p-8">
               {submitStatus === "success" && (
                 <div className="mb-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                  <p className="text-green-600 font-semibold">Message sent successfully! I'll get back to you soon.</p>
+                  <p className="text-green-600 font-semibold">Message sent successfully! I&apos;ll get back to you soon.</p>
                 </div>
               )}
 

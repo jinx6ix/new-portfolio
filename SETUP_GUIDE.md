@@ -53,7 +53,7 @@ This is a comprehensive, SEO-optimized portfolio website for Ian Iraya featuring
 - **Location:** `/api/booking` and `/api/contact`
 - **Features:**
   - Booking form submissions sent to `jinxed435@gmail.com`
-  - WhatsApp notifications to `+25475625634`
+  - WhatsApp notifications to `+254757662968`
   - HTML email templates
   - Contact form integration
   - Automatic confirmations
@@ -218,7 +218,7 @@ TWILIO_WHATSAPP_NUMBER=your_twilio_number
 
 ### Update Contact Information
 - Email: `jinxed435@gmail.com` (update in `/app/booking/page.tsx`, `/app/api/booking/route.ts`)
-- WhatsApp: `+25475625634` (update in `/app/booking/page.tsx`, `/app/api/booking/route.ts`)
+- WhatsApp: `+254757662968` (update in `/app/booking/page.tsx`, `/app/api/booking/route.ts`)
 - Location: Kiambu, Githunguri, Kenya (update in `/app/layout.tsx`, `/lib/seo-schema.ts`)
 
 ### Update Pricing

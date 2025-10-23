@@ -87,8 +87,8 @@ The site tracks 25+ custom events including:
 ## 📱 Contact Information
 
 - **Email:** jinxed435@gmail.com
-- **Phone:** +254 756 256 34
-- **WhatsApp:** +25475625634
+- **Phone:** +254 757 6629 68
+- **WhatsApp:** +254757662968
 - **Location:** Githunguri, Kiambu, Kenya
 
 ## 🚀 Deployment
