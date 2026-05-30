@@ -506,9 +506,9 @@ export async function getAnalyticsSummary() {
       prisma.analyticsEvent.findMany({ where: { type: 'social_share' } }),
     ]);
 
-    const uniqueSessions = new Set(events.map(e => e.sessionId)).size;
-    const todaySessions = new Set(todayEvents.map(e => e.sessionId)).size;
-    const weekSessions = new Set(weekEvents.map(e => e.sessionId)).size;
+    const uniqueSessions = new Set(events.map((e: any) => e.sessionId)).size;
+    const todaySessions = new Set(todayEvents.map((e: any) => e.sessionId)).size;
+    const weekSessions = new Set(weekEvents.map((e: any) => e.sessionId)).size;
 
     const referrers: Record<string, number> = {};
     const pages: Record<string, number> = {};
@@ -518,7 +518,7 @@ export async function getAnalyticsSummary() {
     const clicksByPage: Record<string, number> = {};
     const sessions: Record<string, { pages: string[]; referrer?: string; device: string; browser: string; timestamp: string }> = {};
 
-    events.forEach(e => {
+    events.forEach((e: any) => {
       if (e.referrer) {
         try {
           const url = new URL(e.referrer);
@@ -560,7 +560,7 @@ export async function getAnalyticsSummary() {
     for (let i = 6; i >= 0; i--) {
       const date = new Date(today.getTime() - i * 24 * 60 * 60 * 1000);
       const key = date.toISOString().split('T')[0];
-      dailyPageviews[key] = events.filter(e => {
+      dailyPageviews[key] = events.filter((e: any) => {
         const eventDate = e.timestamp.toISOString().split('T')[0];
         return eventDate === key && e.type === 'pageview';
       }).length;
