@@ -12,8 +12,8 @@ interface SEOHeadProps {
 export function SEOHead({
   title,
   description,
-  image = "https://ianiraya.com/og-image.jpg",
-  url = "https://ianiraya.com",
+  image = "https://new-portfolio-kappa-sand.vercel.app/og-image.jpg",
+  url = "https://new-portfolio-kappa-sand.vercel.app",
   type = "website",
 }: SEOHeadProps) {
   return (

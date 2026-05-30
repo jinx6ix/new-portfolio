@@ -3,8 +3,8 @@ export const generateOrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Ian Iraya",
-    url: "https://ianiraya.com",
-    logo: "https://ianiraya.com/logo.png",
+    url: "https://new-portfolio-kappa-sand.vercel.app",
+    logo: "https://new-portfolio-kappa-sand.vercel.app/logo.png",
     description: "Web Developer, Cybersecurity Expert & SEO Manager based in Kenya",
     address: {
       "@type": "PostalAddress",
@@ -39,7 +39,7 @@ export const generateServiceSchema = (serviceName: string, description: string, 
     provider: {
       "@type": "Organization",
       name: "Ian Iraya",
-      url: "https://ianiraya.com",
+      url: "https://new-portfolio-kappa-sand.vercel.app",
     },
     ...(price && {
       offers: {
@@ -98,14 +98,14 @@ export const generateArticleSchema = (
     author: {
       "@type": "Person",
       name: author,
-      url: "https://ianiraya.com",
+      url: "https://new-portfolio-kappa-sand.vercel.app",
     },
     publisher: {
       "@type": "Organization",
       name: "Ian Iraya",
       logo: {
         "@type": "ImageObject",
-        url: "https://ianiraya.com/logo.png",
+        url: "https://new-portfolio-kappa-sand.vercel.app/logo.png",
       },
     },
   }
@@ -116,7 +116,7 @@ export const generateLocalBusinessSchema = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Ian Iraya - Web Developer & Cybersecurity Expert",
-    image: "https://ianiraya.com/logo.png",
+    image: "https://new-portfolio-kappa-sand.vercel.app/logo.png",
     description: "Professional web development, cybersecurity, and SEO services in Kenya",
     address: {
       "@type": "PostalAddress",
@@ -128,7 +128,7 @@ export const generateLocalBusinessSchema = () => {
     },
     telephone: "+254-757-6629-68",
     email: "jinxed435@gmail.com",
-    url: "https://ianiraya.com",
+    url: "https://new-portfolio-kappa-sand.vercel.app",
     priceRange: "KES 12,000 - KES 100,000",
     areaServed: "KE",
     serviceType: ["Web Development", "Cybersecurity", "SEO Management", "Web Hosting"],

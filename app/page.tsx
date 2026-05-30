@@ -9,7 +9,7 @@ export const metadata = {
   openGraph: {
     title: "Ian Iraya | Web Developer, Cybersecurity Expert & SEO Manager",
     description: "Professional portfolio showcasing expertise in web development, cybersecurity, and SEO.",
-    url: "https://ianiraya.com",
+    url: "https://new-portfolio-kappa-sand.vercel.app",
   },
 }
 

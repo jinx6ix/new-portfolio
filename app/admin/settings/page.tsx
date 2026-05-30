@@ -206,7 +206,7 @@ export default function AdminSettingsPage() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-muted-foreground">Site URL</p>
-              <p className="font-medium">https://ianiraya.com</p>
+              <p className="font-medium">https://new-portfolio-kappa-sand.vercel.app</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Ads Page</p>

@@ -12,7 +12,7 @@ export const metadata = {
   openGraph: {
     title: "About Ian Iraya",
     description: "Discover the story behind the expertise and passion for digital solutions.",
-    url: "https://ianiraya.com/about",
+    url: "https://new-portfolio-kappa-sand.vercel.app/about",
   },
 }
 

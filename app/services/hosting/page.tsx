@@ -12,7 +12,7 @@ export const metadata = {
   openGraph: {
     title: "Web Hosting Services | Ian Iraya",
     description: "Professional web hosting services with free tier options available.",
-    url: "https://ianiraya.com/services/hosting",
+    url: "https://new-portfolio-kappa-sand.vercel.app/services/hosting",
   },
 }
 

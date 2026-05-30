@@ -6,7 +6,7 @@ import AnalyticsProvider from "@/components/analytics-provider"
 import SiteWrapper from "@/components/site-wrapper"
 import "./globals.css"
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ianiraya.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://new-portfolio-kappa-sand.vercel.app';
 
 export const metadata: Metadata = {
   title: "Ian Iraya | Web Developer, Cybersecurity Expert & SEO Manager | Kenya",

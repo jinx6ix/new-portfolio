@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 0,
       },
     ],
-    sitemap: "https://ianiraya.com/sitemap.xml",
+    sitemap: "https://new-portfolio-kappa-sand.vercel.app/sitemap.xml",
   }
 }

@@ -12,7 +12,7 @@ export const metadata = {
   openGraph: {
     title: "Cybersecurity Services | Ian Iraya",
     description: "Protect your digital assets with professional cybersecurity services.",
-    url: "https://ianiraya.com/services/cybersecurity",
+    url: "https://new-portfolio-kappa-sand.vercel.app/services/cybersecurity",
   },
 }
 
