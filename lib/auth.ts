@@ -1,4 +1,4 @@
-import prisma from './prisma';
+import supabase from './supabase';
 import { cookies } from 'next/headers';
 import { createHash, randomBytes, timingSafeEqual } from 'crypto';
 
@@ -42,14 +42,15 @@ export async function getSession(): Promise<{ id: string; username: string } | n
     const [adminId] = sessionToken.split('-');
     if (!adminId) return null;
 
-    const admin = await prisma.admin.findUnique({
-      where: { id: adminId },
-      select: { id: true, username: true },
-    });
+    const { data: admin, error } = await supabase
+      .from('admins')
+      .select('id, username')
+      .eq('id', adminId)
+      .maybeSingle();
 
-    if (!admin) return null;
+    if (error || !admin) return null;
 
-    return admin;
+    return { id: admin.id, username: admin.username };
   } catch {
     return null;
   }
@@ -62,11 +63,13 @@ export async function destroySession(): Promise<void> {
 
 export async function verifyAdmin(username: string, password: string): Promise<{ id: string; username: string } | null> {
   try {
-    const admin = await prisma.admin.findUnique({
-      where: { username },
-    });
+    const { data: admin, error } = await supabase
+      .from('admins')
+      .select('id, username, password')
+      .eq('username', username)
+      .maybeSingle();
 
-    if (!admin) return null;
+    if (error || !admin) return null;
 
     const hashedInput = hashPassword(password);
     const hashedStored = admin.password;
