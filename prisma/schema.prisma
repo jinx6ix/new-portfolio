@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Ad {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  clientName   String   @map("client_name")
+  clientEmail  String   @map("client_email")
+  clientPhone  String?  @map("client_phone")
+  websiteUrl   String?  @map("website_url")
+  imageUrl     String   @map("image_url")
+  targetUrl    String   @map("target_url")
+  position     String
+  size         String
+  status       String   @default("pending")
+  startDate    DateTime @map("start_date")
+  endDate      DateTime @map("end_date")
+  impressions  Int      @default(0)
+  clicks       Int      @default(0)
+  adType       String   @default("client") @map("ad_type")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("ads")
+}
+
+model AdOrder {
+  id            String   @id @default(cuid())
+  adId          String?  @map("ad_id")
+  clientName    String   @map("client_name")
+  clientEmail   String   @map("client_email")
+  clientPhone   String?  @map("client_phone")
+  companyName   String?  @map("company_name")
+  websiteUrl    String?  @map("website_url")
+  adTitle       String   @map("ad_title")
+  adDescription String   @map("ad_description")
+  adImageUrl    String?  @map("ad_image_url")
+  adTargetUrl   String   @map("ad_target_url")
+  adPosition    String   @map("ad_position")
+  adSize        String   @map("ad_size")
+  duration      Int
+  totalPrice    Float    @map("total_price")
+  status        String   @default("pending")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@map("ad_orders")
+}
+
+model AnalyticsEvent {
+  id          String   @id @default(cuid())
+  sessionId   String   @map("session_id")
+  type        String
+  page        String
+  referrer    String?
+  utmSource   String?  @map("utm_source")
+  utmMedium   String?  @map("utm_medium")
+  utmCampaign String?  @map("utm_campaign")
+  userAgent   String   @map("user_agent")
+  screenSize  String?  @map("screen_size")
+  deviceType  String   @map("device_type")
+  browser     String?
+  country     String?
+  city        String?
+  metadata    Json?
+  timestamp   DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([type])
+  @@index([timestamp])
+  @@index([page])
+
+  @@map("analytics_events")
+}
+
+model SiteSettings {
+  id                  String   @id @default(cuid())
+  maintenanceMode     Boolean  @default(false) @map("maintenance_mode")
+  maintenanceMessage String?  @map("maintenance_message")
+  googleAdsenseId     String?  @map("google_adsense_id")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  @@map("site_settings")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("admins")
+}
