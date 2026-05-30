@@ -15,7 +15,7 @@ import {
   Clock,
   MapPin,
 } from 'lucide-react';
-import React from 'react';
+import React, { createElement } from 'react';
 
 interface AnalyticsSummary {
   totalEvents: number;
@@ -269,7 +269,7 @@ export default function AdminAnalyticsPage() {
                   </div>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
-                      {deviceIcons[session.device] ? React.createElement(deviceIcons[session.device], { className: 'w-4 h-4' }) : <Monitor className="w-4 h-4" />}
+                      {deviceIcons[session.device] ? createElement(deviceIcons[session.device], { className: 'w-4 h-4' }) : <Monitor className="w-4 h-4" />}
                       {session.device}
                     </span>
                     <span className="flex items-center gap-1">
