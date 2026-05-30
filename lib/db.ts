@@ -78,7 +78,7 @@ export async function getAllAds(status?: string): Promise<Ad[]> {
   try {
     const where = status ? { status } : {};
     const ads = await prisma.ad.findMany({ where, orderBy: { createdAt: 'desc' } });
-    return ads.map(ad => ({
+    return ads.map((ad: any) => ({
       id: ad.id,
       title: ad.title,
       description: ad.description,
@@ -117,7 +117,7 @@ export async function getActiveAds(position?: string): Promise<Ad[]> {
       where.position = position;
     }
     const ads = await prisma.ad.findMany({ where, orderBy: { createdAt: 'desc' } });
-    return ads.map(ad => ({
+    return ads.map((ad: any) => ({
       id: ad.id,
       title: ad.title,
       description: ad.description,
@@ -290,7 +290,7 @@ export async function getAllOrders(status?: string): Promise<AdOrder[]> {
   try {
     const where = status ? { status } : {};
     const orders = await prisma.adOrder.findMany({ where, orderBy: { createdAt: 'desc' } });
-    return orders.map(order => ({
+    return orders.map((order: any) => ({
       id: order.id,
       adId: order.adId || undefined,
       clientName: order.clientName,
