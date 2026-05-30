@@ -1,5 +1,4 @@
 import prisma from './prisma';
-import { Prisma } from '@prisma/client';
 import { Ad, AdOrder, AnalyticsEvent, SiteSettings, AdPricing } from './types';
 
 export const AD_PRICING: AdPricing[] = [
@@ -453,7 +452,7 @@ export async function logAnalyticsEvent(event: Omit<AnalyticsEvent, 'id' | 'time
         browser: event.browser,
         country: event.country,
         city: event.city,
-        metadata: event.metadata as Prisma.InputJsonValue,
+        metadata: event.metadata as any,
       },
     });
   } catch (error) {
