@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
-import { Website } from 'lucide-react';
 
 interface SEOMetadataProps {
   title: string;
   description: string;
   keywords?: string[];
   ogImage?: string;
-  ogType?: 'website' | 'article' | 'product';
+  ogType?: 'website' | 'article';
   canonical?: string;
   noIndex?: boolean;
 }
@@ -129,7 +128,7 @@ export function generateProductMetadata({
   const metadata = generateSEOMetadata({
     title,
     description,
-    ogType: 'product',
+    ogType: 'website',
     ogImage,
   });
 
@@ -139,7 +138,7 @@ export function generateProductMetadata({
       ...metadata.openGraph,
       price,
       priceCurrency: currency,
-    },
+    } as unknown as NonNullable<Metadata['openGraph']>,
   };
 }
 

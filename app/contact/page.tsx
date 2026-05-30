@@ -8,6 +8,7 @@ import Footer from "@/components/footer"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react"
+import { trackEvent } from "@/lib/gtag"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -32,11 +33,9 @@ export default function Contact() {
     setSubmitStatus("idle")
 
     try {
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "contact_form_submitted", {
+      trackEvent("contact_form_submitted", {
           subject: formData.subject,
         })
-      }
 
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -53,9 +52,7 @@ export default function Contact() {
       setSubmitStatus("success")
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
 
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "contact_success")
-      }
+      trackEvent("contact_success")
 
       setTimeout(() => {
         setSubmitStatus("idle")
@@ -64,11 +61,9 @@ export default function Contact() {
       setSubmitStatus("error")
       setErrorMessage(error instanceof Error ? error.message : "An error occurred")
 
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "contact_error", {
+      trackEvent("contact_error", {
           error_message: error instanceof Error ? error.message : "Unknown error",
         })
-      }
     } finally {
       setIsSubmitting(false)
     }
@@ -94,9 +89,7 @@ export default function Contact() {
             <Card
               className="p-6 space-y-4 cursor-pointer hover:border-primary transition-colors"
               onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "contact_email_card_clicked")
-                }
+                trackEvent("contact_email_card_clicked")
               }}
             >
               <Mail className="h-8 w-8 text-primary" />
@@ -106,9 +99,7 @@ export default function Contact() {
                   href="mailto:jinxed435@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors"
                   onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "contact_email_clicked")
-                    }
+                    trackEvent("contact_email_clicked")
                   }}
                 >
                   jinxed435@gmail.com
@@ -119,9 +110,7 @@ export default function Contact() {
             <Card
               className="p-6 space-y-4 cursor-pointer hover:border-primary transition-colors"
               onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "contact_phone_card_clicked")
-                }
+                trackEvent("contact_phone_card_clicked")
               }}
             >
               <Phone className="h-8 w-8 text-primary" />
@@ -131,9 +120,7 @@ export default function Contact() {
                   href="tel:+254757662968"
                   className="text-muted-foreground hover:text-primary transition-colors"
                   onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "contact_phone_clicked")
-                    }
+                    trackEvent("contact_phone_clicked")
                   }}
                 >
                   +254 757 6629 68
@@ -144,9 +131,7 @@ export default function Contact() {
             <Card
               className="p-6 space-y-4 cursor-pointer hover:border-primary transition-colors"
               onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "contact_location_card_clicked")
-                }
+                trackEvent("contact_location_card_clicked")
               }}
             >
               <MapPin className="h-8 w-8 text-primary" />
@@ -166,9 +151,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="block"
               onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "contact_whatsapp_clicked")
-                }
+                trackEvent("contact_whatsapp_clicked")
               }}
             >
               <Card className="p-6 space-y-4 cursor-pointer hover:border-green-500 transition-colors bg-green-500/5">

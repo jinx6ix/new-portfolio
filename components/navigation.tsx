@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { Menu, X, Megaphone } from "lucide-react"
 import HeaderAdBanner from "./ads/header-ad-banner"
+import { trackEvent } from "@/lib/gtag"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -36,11 +37,7 @@ export default function Navigation() {
   ]
 
   const handleNavClick = (label: string) => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "navigation_clicked", {
-        nav_label: label,
-      })
-    }
+    trackEvent("navigation_clicked", { nav_label: label })
     setIsOpen(false)
   }
 
@@ -53,7 +50,6 @@ export default function Navigation() {
               Ian Iraya
             </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-6">
               {links.map((link) => (
                 <Link
@@ -82,7 +78,6 @@ export default function Navigation() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="flex items-center gap-2">
               <Link
                 href="/ads"
@@ -97,7 +92,6 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
           {isOpen && (
             <div className="md:hidden pb-4 space-y-2">
               {links.map((link) => (
@@ -130,7 +124,6 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Header Ad Banner - shows if there are active header ads */}
       {showAdBanner && <HeaderAdBanner />}
     </>
   )

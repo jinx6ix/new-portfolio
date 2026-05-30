@@ -208,8 +208,9 @@ export default async function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        <AnalyticsProvider />
-        {children}
+        <AnalyticsProvider>
+          {children}
+        </AnalyticsProvider>
         <Analytics />
       </body>
     </html>

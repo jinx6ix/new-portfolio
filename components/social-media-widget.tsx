@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Instagram, Twitter, Linkedin, Music2 } from "lucide-react"
+import { trackEvent } from "@/lib/gtag"
 
 export function SocialMediaWidget() {
   useEffect(() => {
@@ -67,11 +68,9 @@ export function SocialMediaWidget() {
               title={social.name}
               className="hover:opacity-80 transition-opacity"
               onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "social_widget_clicked", {
+                trackEvent("social_widget_clicked", {
                     platform: social.name,
                   })
-                }
               }}
             >
               <Icon className={`h-6 w-6 ${social.color}`} />

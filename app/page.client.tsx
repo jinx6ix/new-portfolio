@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { ArrowRight, Shield, Code2, TrendingUp, Zap } from "lucide-react"
+import { trackEvent } from "@/lib/gtag"
 
 export default function PageClient() {
   const services = [
@@ -68,11 +69,6 @@ export default function PageClient() {
                   <Button
                     size="lg"
                     className="w-full sm:w-auto"
-                    onClick={() => {
-                      if (typeof window !== "undefined" && window.gtag) {
-                        window.gtag("event", "homepage_view_work_clicked")
-                      }
-                    }}
                   >
                     View My Work <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -82,11 +78,6 @@ export default function PageClient() {
                     size="lg"
                     variant="outline"
                     className="w-full sm:w-auto bg-transparent"
-                    onClick={() => {
-                      if (typeof window !== "undefined" && window.gtag) {
-                        window.gtag("event", "homepage_book_service_clicked")
-                      }
-                    }}
                   >
                     Book Service
                   </Button>
@@ -133,11 +124,9 @@ export default function PageClient() {
                   <Card
                     className="h-full p-6 hover:border-primary transition-colors cursor-pointer group"
                     onClick={() => {
-                      if (typeof window !== "undefined" && window.gtag) {
-                        window.gtag("event", "service_card_clicked", {
-                          service_name: service.title,
-                        })
-                      }
+                      trackEvent("service_card_clicked", {
+                        service_name: service.title,
+                      })
                     }}
                   >
                     <Icon className="h-12 w-12 text-primary mb-4 group-hover:text-accent transition-colors" />
@@ -176,11 +165,9 @@ export default function PageClient() {
                     href="/portfolio"
                     className="text-primary hover:text-accent text-sm font-medium"
                     onClick={() => {
-                      if (typeof window !== "undefined" && window.gtag) {
-                        window.gtag("event", "featured_project_clicked", {
-                          project_number: i,
-                        })
-                      }
+                      trackEvent("featured_project_clicked", {
+                        project_number: i,
+                      })
                     }}
                   >
                     View Details →
@@ -195,11 +182,6 @@ export default function PageClient() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => {
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "view_all_projects_clicked")
-                  }
-                }}
               >
                 View All Projects <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -218,14 +200,7 @@ export default function PageClient() {
                 Affordable packages for all service types with flexible payment options
               </p>
               <Link href="/pricing">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "homepage_pricing_clicked")
-                    }
-                  }}
-                >
+                <Button variant="outline">
                   View Pricing
                 </Button>
               </Link>
@@ -236,13 +211,7 @@ export default function PageClient() {
                 Book your service in minutes. Receive confirmation via email and WhatsApp
               </p>
               <Link href="/booking">
-                <Button
-                  onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "homepage_booking_cta_clicked")
-                    }
-                  }}
-                >
+                <Button>
                   Book Now
                 </Button>
               </Link>
@@ -253,14 +222,7 @@ export default function PageClient() {
                 Leverage AI tools to optimize your content and dominate search results
               </p>
               <Link href="/seo-tools">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "homepage_seo_tools_clicked")
-                    }
-                  }}
-                >
+                <Button variant="outline">
                   Explore Tools
                 </Button>
               </Link>
@@ -282,11 +244,6 @@ export default function PageClient() {
             <Button
               size="lg"
               className="px-8"
-              onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "homepage_final_cta_clicked")
-                }
-              }}
             >
               Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
             </Button>

@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { Instagram, Twitter, Linkedin, Music2, ExternalLink } from "lucide-react"
+import { trackEvent } from "@/lib/gtag"
 
 export default function SocialPage() {
   const [tiktokVideos, setTiktokVideos] = useState<any[]>([])
@@ -88,11 +89,9 @@ export default function SocialPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "social_link_clicked", {
+                    trackEvent("social_link_clicked", {
                         platform: social.name,
                       })
-                    }
                   }}
                 >
                   <Card className={`p-6 h-full hover:border-primary transition-all cursor-pointer group`}>
@@ -204,9 +203,7 @@ export default function SocialPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
                 onClick={() => {
-                  if (typeof window !== "undefined" && window.gtag) {
-                    window.gtag("event", "linkedin_profile_clicked")
-                  }
+                  trackEvent("linkedin_profile_clicked")
                 }}
               >
                 <Linkedin className="h-5 w-5" />

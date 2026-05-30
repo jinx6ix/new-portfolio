@@ -1,4 +1,5 @@
 import prisma from './prisma';
+import { Prisma } from '@prisma/client';
 import { Ad, AdOrder, AnalyticsEvent, SiteSettings, AdPricing } from './types';
 
 export const AD_PRICING: AdPricing[] = [
@@ -452,7 +453,7 @@ export async function logAnalyticsEvent(event: Omit<AnalyticsEvent, 'id' | 'time
         browser: event.browser,
         country: event.country,
         city: event.city,
-        metadata: event.metadata as Record<string, unknown>,
+        metadata: event.metadata as Prisma.InputJsonValue,
       },
     });
   } catch (error) {
@@ -535,7 +536,7 @@ export async function getAnalyticsSummary() {
       if (!sessions[e.sessionId]) {
         sessions[e.sessionId] = {
           pages: [],
-          referrer: e.referrer,
+          referrer: e.referrer ?? undefined,
           device: e.deviceType,
           browser: e.browser || 'Unknown',
           timestamp: e.timestamp.toISOString(),

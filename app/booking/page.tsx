@@ -10,6 +10,7 @@ import { Card } from "@/components/ui/card"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { ArrowLeft, Mail, MessageCircle, Loader2 } from "lucide-react"
+import { trackEvent } from "@/lib/gtag"
 
 function BookingContent() {
   const searchParams = useSearchParams()
@@ -55,12 +56,10 @@ function BookingContent() {
     setSubmitStatus("idle")
 
     try {
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "booking_form_submitted", {
-          service_type: formData.serviceType,
-          budget: formData.budget,
-        })
-      }
+      trackEvent("booking_form_submitted", {
+        service_type: formData.serviceType,
+        budget: formData.budget,
+      })
 
       const response = await fetch("/api/booking", {
         method: "POST",
@@ -75,6 +74,7 @@ function BookingContent() {
       }
 
       setSubmitStatus("success")
+      trackEvent("booking_success", { service_type: formData.serviceType })
       setFormData({
         name: "",
         email: "",
@@ -85,21 +85,12 @@ function BookingContent() {
         timeline: "",
         serviceType: "",
       })
-
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "booking_success", {
-          service_type: formData.serviceType,
-        })
-      }
     } catch (error) {
       setSubmitStatus("error")
       setErrorMessage(error instanceof Error ? error.message : "An error occurred")
-
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "booking_error", {
-          error_message: error instanceof Error ? error.message : "Unknown error",
-        })
-      }
+      trackEvent("booking_error", {
+        error_message: error instanceof Error ? error.message : "Unknown error",
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -269,18 +260,13 @@ function BookingContent() {
               </Button>
             </form>
 
-            {/* Contact Methods */}
             <div className="mt-12 pt-8 border-t border-border">
               <h3 className="font-semibold mb-4">Or contact me directly:</h3>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="mailto:jinxed435@gmail.com"
                   className="flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-colors"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "contact_email_clicked")
-                    }
-                  }}
+                  onClick={() => trackEvent("contact_email_clicked")}
                 >
                   <Mail className="h-4 w-4" />
                   Email
@@ -290,11 +276,7 @@ function BookingContent() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 bg-green-500/10 hover:bg-green-500/20 rounded-lg transition-colors"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "contact_whatsapp_clicked")
-                    }
-                  }}
+                  onClick={() => trackEvent("contact_whatsapp_clicked")}
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp

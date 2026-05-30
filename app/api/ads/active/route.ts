@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getActiveAds, incrementAdImpression } from '@/lib/db';
 
 export async function GET(request: NextRequest) {

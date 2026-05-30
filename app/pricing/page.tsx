@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { Check, ArrowRight } from "lucide-react"
+import { trackEvent } from "@/lib/gtag"
 
 export default function PricingPage() {
   const [selectedService, setSelectedService] = useState<string | null>(null)
@@ -208,13 +209,11 @@ export default function PricingPage() {
                     variant={service.popular ? "default" : "outline"}
                     onClick={() => {
                       setSelectedService(service.id)
-                      if (typeof window !== "undefined" && window.gtag) {
-                        window.gtag("event", "pricing_service_selected", {
-                          service_id: service.id,
-                          service_name: service.name,
-                          price: service.price,
-                        })
-                      }
+                      trackEvent("pricing_service_selected", {
+                        service_id: service.id,
+                        service_name: service.name,
+                        price: service.price,
+                      })
                     }}
                   >
                     Book Now <ArrowRight className="ml-2 h-4 w-4" />
