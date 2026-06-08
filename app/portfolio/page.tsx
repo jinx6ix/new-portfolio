@@ -14,6 +14,30 @@ export default function PortfolioPage() {
   const projects = [
     {
       id: 1,
+      title: "Jae Travel - Tour Booking Platform",
+      category: "web-development",
+      description:
+        "Professional travel booking platform for a Kenyan tour company. Features destination browsing, package bookings, and WhatsApp integration for customer inquiries.",
+      image: "/jaetravel-project.jpg",
+      technologies: ["Next.js", "Tailwind CSS", "Supabase", "WhatsApp API", "Responsive Design"],
+      results: ["50+ destinations", "40% increase in bookings", "Seamless mobile experience"],
+      link: "/portfolio/jae-travel",
+      liveUrl: "https://jaetravel.co.ke",
+    },
+    {
+      id: 2,
+      title: "Jae Travel - Booking Engine",
+      category: "web-development",
+      description:
+        "Comprehensive booking engine with real-time availability, secure payments, and automated confirmations. Integrated with M-Pesa for local payments.",
+      image: "/jaetravel-booking.jpg",
+      technologies: ["Next.js", "M-Pesa API", "Stripe", "PostgreSQL", "EmailJS"],
+      results: ["M-Pesa integration", "Real-time availability", "Automated confirmations"],
+      link: "/portfolio/jae-travel-booking",
+      liveUrl: "https://jaetravel.com",
+    },
+    {
+      id: 3,
       title: "E-Commerce Platform",
       category: "web-development",
       description:
@@ -24,18 +48,29 @@ export default function PortfolioPage() {
       link: "/portfolio/ecommerce-platform",
     },
     {
-      id: 2,
-      title: "Security Audit Report",
+      id: 4,
+      title: "Financial Institution Penetration Testing",
       category: "cybersecurity",
       description:
-        "Comprehensive security audit for a fintech company identifying 25+ vulnerabilities and providing remediation steps.",
-      image: "/security-audit-report-dashboard.jpg",
-      technologies: ["Penetration Testing", "OWASP", "Security Analysis"],
-      results: ["25+ vulnerabilities identified", "100% remediation rate", "ISO 27001 compliant"],
-      link: "/portfolio/security-audit",
+        "Comprehensive penetration testing and vulnerability assessment for a major Kenyan bank. Identified critical vulnerabilities and provided remediation guidance achieving ISO 27001 compliance.",
+      image: "/pentest-financial.jpg",
+      technologies: ["Burp Suite", "OWASP ZAP", "Metasploit", "Nmap", "Security Analysis"],
+      results: ["15 critical vulnerabilities found", "100% remediation support", "ISO 27001 certified"],
+      link: "/portfolio/pentest-financial",
     },
     {
-      id: 3,
+      id: 5,
+      title: "Healthcare Data Security Implementation",
+      category: "cybersecurity",
+      description:
+        "HIPAA-compliant security infrastructure for a medical records management system. Implemented encryption, access controls, and audit logging.",
+      image: "/healthcare-security.jpg",
+      technologies: ["AES-256 Encryption", "RBAC", "Audit Logging", "HIPAA Compliance", "AWS Security"],
+      results: ["100% HIPAA compliance", "Zero data breaches", "Protected 50k+ patient records"],
+      link: "/portfolio/healthcare-security",
+    },
+    {
+      id: 6,
       title: "SaaS Application",
       category: "web-development",
       description: "Multi-tenant SaaS platform with user authentication, subscription management, and analytics.",
@@ -45,7 +80,29 @@ export default function PortfolioPage() {
       link: "/portfolio/saas-application",
     },
     {
-      id: 4,
+      id: 7,
+      title: "E-Commerce Security Audit",
+      category: "cybersecurity",
+      description:
+        "Complete security assessment of high-traffic e-commerce platform handling thousands of daily transactions. Implemented PCI-DSS compliant payment processing.",
+      image: "/ecommerce-security.jpg",
+      technologies: ["PCI-DSS", "Penetration Testing", "Security Hardening", "Compliance"],
+      results: ["PCI-DSS compliant", "Secured 10k+ transactions/day", "Zero security incidents"],
+      link: "/portfolio/ecommerce-security",
+    },
+    {
+      id: 8,
+      title: "API Security Assessment",
+      category: "cybersecurity",
+      description:
+        "Deep security analysis of REST APIs for a fintech startup. Discovered and remediated authentication bypass and data exposure vulnerabilities.",
+      image: "/api-security.jpg",
+      technologies: ["API Security", "JWT Analysis", "OAuth 2.0", "GraphQL Security", "OWASP Top 10"],
+      results: ["20+ API vulnerabilities fixed", "OAuth 2.0 implementation", "Secure by design"],
+      link: "/portfolio/api-security",
+    },
+    {
+      id: 9,
       title: "SEO Campaign - Tech Startup",
       category: "seo",
       description:
@@ -56,17 +113,7 @@ export default function PortfolioPage() {
       link: "/portfolio/seo-campaign-tech",
     },
     {
-      id: 5,
-      title: "Mobile App Security",
-      category: "cybersecurity",
-      description: "Security assessment and hardening of a mobile banking application with encryption implementation.",
-      image: "/mobile-app-security.png",
-      technologies: ["Mobile Security", "Encryption", "API Security", "Compliance"],
-      results: ["Zero vulnerabilities", "PCI-DSS compliant", "Enhanced user trust"],
-      link: "/portfolio/mobile-app-security",
-    },
-    {
-      id: 6,
+      id: 10,
       title: "Corporate Website Redesign",
       category: "web-development",
       description: "Complete website redesign with modern UI/UX, improved performance, and SEO optimization.",
@@ -76,24 +123,24 @@ export default function PortfolioPage() {
       link: "/portfolio/corporate-website",
     },
     {
-      id: 7,
-      title: "E-Learning Platform SEO",
-      category: "seo",
-      description: "SEO optimization for online learning platform increasing organic enrollment by 250%.",
-      image: "/elearning-platform.png",
-      technologies: ["Technical SEO", "Content Optimization", "Schema Markup"],
-      results: ["250% enrollment increase", "1000+ organic visitors/day", "Top rankings"],
-      link: "/portfolio/elearning-seo",
+      id: 11,
+      title: "Mobile Banking Security",
+      category: "cybersecurity",
+      description: "Security assessment and hardening of mobile banking application including biometric authentication and encryption implementation.",
+      image: "/mobile-banking-security.jpg",
+      technologies: ["Mobile Security", "Biometric Auth", "End-to-End Encryption", "OWASP MASVS"],
+      results: ["Biometric security implemented", "Zero critical vulnerabilities", "Enhanced user trust"],
+      link: "/portfolio/mobile-banking-security",
     },
     {
-      id: 8,
-      title: "Infrastructure Security",
+      id: 12,
+      title: "Cloud Infrastructure Security",
       category: "cybersecurity",
-      description: "Cloud infrastructure security assessment and implementation of security best practices.",
-      image: "/cloud-infrastructure-security.jpg",
-      technologies: ["AWS Security", "Infrastructure Hardening", "Compliance"],
-      results: ["100% compliance", "Zero breaches", "Reduced risk by 80%"],
-      link: "/portfolio/infrastructure-security",
+      description: "AWS infrastructure security assessment and implementation of security best practices with automated compliance monitoring.",
+      image: "/cloud-security.jpg",
+      technologies: ["AWS Security", "IAM", "Security Groups", "CloudTrail", "Compliance Automation"],
+      results: ["100% AWS security compliance", "Automated threat detection", "70% cost reduction"],
+      link: "/portfolio/cloud-security",
     },
   ]
 
@@ -156,25 +203,46 @@ export default function PortfolioPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <Link key={project.id} href={project.link}>
-                <Card className="h-full overflow-hidden hover:border-primary transition-all hover:shadow-lg group cursor-pointer">
+                <Card className={`h-full overflow-hidden card-hover group cursor-pointer scroll-animate scroll-delay-${(index % 6 + 1) * 100}`}>
                   {/* Project Image */}
-                  <div className="relative h-48 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
+                  <div className="relative h-48 bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden img-zoom">
                     <img
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover"
                     />
+                    {project.liveUrl && (
+                      <div className="absolute top-3 right-3 bg-green-500/90 text-white text-xs font-semibold px-2 py-1 rounded flex items-center gap-1">
+                        <ExternalLink className="h-3 w-3" />
+                        Live
+                      </div>
+                    )}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/50 to-transparent" />
                   </div>
 
                   {/* Project Content */}
                   <div className="p-6 space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="space-y-2 flex-1">
+                        <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                      </div>
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="flex-shrink-0 p-2 hover:bg-primary/10 rounded-lg transition-colors"
+                          title="View Live Site"
+                        >
+                          <ExternalLink className="h-5 w-5 text-primary" />
+                        </a>
+                      )}
                     </div>
 
                     {/* Technologies */}

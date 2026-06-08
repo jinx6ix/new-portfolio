@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { getSettings } from "@/lib/db"
 import AnalyticsProvider from "@/components/analytics-provider"
 import SiteWrapper from "@/components/site-wrapper"
+import ScrollAnimationProvider from "@/components/scroll-animation-provider"
 import "./globals.css"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://new-portfolio-kappa-sand.vercel.app';
@@ -209,7 +210,9 @@ export default async function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <AnalyticsProvider>
-          {children}
+          <ScrollAnimationProvider>
+            {children}
+          </ScrollAnimationProvider>
         </AnalyticsProvider>
         <Analytics />
       </body>

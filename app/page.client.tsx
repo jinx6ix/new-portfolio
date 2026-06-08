@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -7,8 +8,18 @@ import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { ArrowRight, Shield, Code2, TrendingUp, Zap } from "lucide-react"
 import { trackEvent } from "@/lib/gtag"
+import AnimatedHero from "@/components/animated-hero"
+import LoadingScreen from "@/components/loading-screen"
 
 export default function PageClient() {
+  const [isLoading, setIsLoading] = useState(true)
+  const [showContent, setShowContent] = useState(false)
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false)
+    setTimeout(() => setShowContent(true), 100)
+  }
+
   const services = [
     {
       icon: Code2,
@@ -43,14 +54,19 @@ export default function PageClient() {
     { label: "Success Rate", value: "98%" },
   ]
 
+  if (isLoading) {
+    return <LoadingScreen onComplete={handleLoadingComplete} />
+  }
+
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5 pointer-events-none" />
-
+      <section className="relative pt-20 pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px]">
+        <AnimatedHero />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/10 pointer-events-none" />
+        
         <div className="relative max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -94,14 +110,6 @@ export default function PageClient() {
                 ))}
               </div>
             </div>
-
-            {/* Hero Image Placeholder */}
-            <div className="relative h-96 lg:h-full rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 border border-border flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <Shield className="h-24 w-24 mx-auto text-primary opacity-50" />
-                <p className="text-muted-foreground">Professional Portfolio</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -117,12 +125,12 @@ export default function PageClient() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const Icon = service.icon
               return (
                 <Link key={service.title} href={service.link}>
                   <Card
-                    className="h-full p-6 hover:border-primary transition-colors cursor-pointer group"
+                    className={`h-full p-6 card-hover group cursor-pointer scroll-animate scroll-delay-${(index + 1) * 100}`}
                     onClick={() => {
                       trackEvent("service_card_clicked", {
                         service_name: service.title,
